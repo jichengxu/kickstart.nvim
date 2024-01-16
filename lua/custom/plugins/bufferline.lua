@@ -18,10 +18,9 @@ return {
 
     })
   -- Keybindings
-  vim.keymap.set("n", "<tab>", ":bNext<cr>")
-  vim.keymap.set("n", "<s-tab>", ":bprevious<cr>")
+  vim.keymap.set("n", "<Tab>", ":bnext<cr>")
+  vim.keymap.set("n", "<S-Tab>", ":bprevious<cr>")
   vim.keymap.set('n', '<leader>bx',":bdelete<cr>", { desc = 'Exit buffer' })
-  vim.keymap.set('n', '<leader>bx',":bdelete<cr>", { desc = '' })
   end,
   version = "*",
   dependencies = "nvim-tree/nvim-web-devicons",
