@@ -347,7 +347,7 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
-  },
+  }
 }
 
 -- Enable telescope fzf native, if installed
@@ -684,6 +684,7 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.api.nvim_set_keymap('t', '<ESC>', [[<C-\><C-n>]], { noremap = true })
 
 vim.cmd.colorscheme 'catppuccin'
 vim.keymap.set('n', '<leader>/', "<leader>gcc", { desc = 'Comment selection linewise' })
