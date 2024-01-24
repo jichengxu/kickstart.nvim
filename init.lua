@@ -352,6 +352,7 @@ require('telescope').setup {
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'harpoon')
 
 -- Telescope live_grep in git root
 -- Function to find the git root directory based on the current buffer's path
@@ -414,6 +415,7 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
+vim.keymap.set('n', '<leader>sm', ':Telescope harpoon marks<cr>', { desc = '[S]earch by file [M]arks' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>sc', require('telescope.builtin').commands, { desc = '[S]earch [C]ommands' })
@@ -430,7 +432,7 @@ vim.defer_fn(function()
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
     -- Install languages synchronously (only applied to `ensure_installed`)
     sync_install = false,
     -- List of parsers to ignore installing
@@ -689,3 +691,6 @@ vim.api.nvim_set_keymap('t', '<ESC>', [[<C-\><C-n>]], { noremap = true })
 vim.cmd.colorscheme 'catppuccin'
 vim.keymap.set('n', '<leader>/', "<leader>gcc", { desc = 'Comment selection linewise' })
 vim.keymap.set('n', '<leader>?', "<leader>gcc", { desc = 'Comment selection blockwise' })
+require("mason").setup {
+    log_level = vim.log.levels.DEBUG
+}
