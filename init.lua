@@ -392,7 +392,6 @@ vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader>bf', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>b/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -422,6 +421,7 @@ vim.keymap.set('n', '<leader>sc', require('telescope.builtin').commands, { desc 
 vim.keymap.set('n', '<leader>s@', require('telescope.builtin').symbols, { desc = '[S]earch Document Symbols' })
 vim.keymap.set('n', '<leader>st', require('telescope.builtin').builtin, { desc = '[S]earch [T]elescope pickers' })
 vim.keymap.set('n', '<leader>sp', require('telescope.builtin').commands, { desc = '[S]earch Commands' })
+vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = '[S]earch existing [b]uffers' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
