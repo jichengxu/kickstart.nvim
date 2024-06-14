@@ -75,7 +75,8 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  -- JSON5 parser
+
+  'mfussenegger/nvim-dap-python',
   'Joakker/lua-json5',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -688,17 +689,14 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
--- vim.keymap.set("n", "<C-d>", "<C-d>zz")
--- vim.keymap.set("n", "<C-u>", "<C-u>zz")
--- vim.keymap.set("n", "<C-i>", "<C-i>zz")
--- vim.keymap.set("n", "<C-o>", "<C-o>zz")
--- vim.keymap.set("n", "n", "nzz")
--- vim.keymap.set("n", "N", "Nzz")
 vim.api.nvim_set_keymap('t', '<ESC>', [[<C-\><C-n>]], { noremap = true })
 
 vim.cmd.colorscheme 'catppuccin'
 vim.keymap.set('n', '<leader>/', "<leader>gcc", { desc = 'Comment selection linewise' })
 vim.keymap.set('n', '<leader>?', "<leader>gcc", { desc = 'Comment selection blockwise' })
+
+require("CopilotChat.integrations.cmp").setup()
+
 require("mason").setup {
-    log_level = vim.log.levels.DEBUG
+  log_level = vim.log.levels.DEBUG
 }
