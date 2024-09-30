@@ -3,6 +3,5 @@
 --
 -- See the kickstart.nvim README for more information
 return { {
-  "shortcuts/no-neck-pain.nvim",
   "Joakker/lua-json5",
 } }
