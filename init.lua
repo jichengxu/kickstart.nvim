@@ -253,6 +253,7 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      current_line_blame = true,
     },
   },
 
@@ -914,24 +915,23 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
-vim.o.tabstop = 4      -- A TAB character looks like 4 spaces
+vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
-vim.o.softtabstop = 4  -- Number of spaces inserted instead of a TAB character
-vim.o.shiftwidth = 4   -- Number of spaces inserted when indenting
+vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 vim.o.relativenumber = true
 vim.o.scrolloff = 9999
 vim.o.cursorline = true
-
 
 -- My keybindings
 vim.api.nvim_set_keymap('t', '<ESC>', [[<C-\><C-n>]], { noremap = true })
 
 vim.cmd.colorscheme 'catppuccin'
-vim.keymap.set('n', '<leader>/', "<leader>gcc", { desc = 'Comment selection linewise' })
-vim.keymap.set('n', '<leader>?', "<leader>gcc", { desc = 'Comment selection blockwise' })
+vim.keymap.set('n', '<leader>/', '<leader>gcc', { desc = 'Comment selection linewise' })
+vim.keymap.set('n', '<leader>?', '<leader>gcc', { desc = 'Comment selection blockwise' })
 
-require("CopilotChat.integrations.cmp").setup()
+-- require('CopilotChat.integrations.cmp').setup()
 
-require("mason").setup {
-  log_level = vim.log.levels.DEBUG
+require('mason').setup {
+  log_level = vim.log.levels.DEBUG,
 }

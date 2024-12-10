@@ -1,9 +1,9 @@
 return {
-  "CopilotC-Nvim/CopilotChat.nvim",
-  branch = "canary",
+  'CopilotC-Nvim/CopilotChat.nvim',
+  branch = 'main',
   dependencies = {
-    { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-    { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
+    { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
+    { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
   },
   opts = {
     -- lazy.nvim opts
@@ -13,7 +13,7 @@ return {
       relative = 'cursor',
       width = 1,
       height = 0.4,
-      row = 1
+      row = 1,
     },
     mappings = {
       complete = {
@@ -23,31 +23,31 @@ return {
       },
       close = {
         normal = 'q',
-        insert = '<C-c>'
+        insert = '<C-c>',
       },
       reset = {
         normal = '<C-l>',
-        insert = '<C-l>'
+        insert = '<C-l>',
       },
       submit_prompt = {
         normal = '<CR>',
-        insert = '<C-m>'
+        insert = '<C-m>',
       },
       accept_diff = {
         normal = '<C-y>',
-        insert = '<C-y>'
+        insert = '<C-y>',
       },
       yank_diff = {
         normal = 'gy',
       },
       show_diff = {
-        normal = 'gd'
+        normal = 'gd',
       },
-      show_system_prompt = {
-        normal = 'gp'
+      show_info = {
+        normal = 'gp',
       },
-      show_user_selection = {
-        normal = 'gs'
+      show_context = {
+        normal = 'gs',
       },
     },
     -- See Configuration section for rest
@@ -56,54 +56,54 @@ return {
     -- lazy.nvim keys
     -- Quick chat with Copilot
     {
-      "<leader>ccq",
+      '<leader>ccq',
       function()
-        local input = vim.fn.input("Quick Chat: ")
-        if input ~= "" then
-          require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+        local input = vim.fn.input 'Quick Chat: '
+        if input ~= '' then
+          require('CopilotChat').ask(input, { selection = require('CopilotChat.select').buffer })
         end
       end,
-      desc = "CopilotChat - Quick chat",
+      desc = 'CopilotChat - Quick chat',
     },
 
     -- Show help actions with telescope
     {
-      "<leader>cch",
+      '<leader>cch',
       function()
-        local actions = require("CopilotChat.actions")
-        require("CopilotChat.integrations.telescope").pick(actions.help_actions())
+        local actions = require 'CopilotChat.actions'
+        require('CopilotChat.integrations.telescope').pick(actions.help_actions())
       end,
-      desc = "CopilotChat - Help actions",
-      mode = {'n','v'}, -- This will apply the mapping in both normal and visual mode
+      desc = 'CopilotChat - Help actions',
+      mode = { 'n', 'v' }, -- This will apply the mapping in both normal and visual mode
     },
     -- Show prompts actions with telescope
     {
-      "<leader>ccp",
+      '<leader>ccp',
       function()
-        local actions = require("CopilotChat.actions")
-        require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+        local actions = require 'CopilotChat.actions'
+        require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
       end,
-      desc = "CopilotChat - Prompt actions",
-      mode = {'n','v'}, -- This will apply the mapping in both normal and visual mode
+      desc = 'CopilotChat - Prompt actions',
+      mode = { 'n', 'v' }, -- This will apply the mapping in both normal and visual mode
     },
 
     {
-      "<leader>ccq",
+      '<leader>ccq',
       function()
-        local input = vim.fn.input("Quick Chat: ")
-        if input ~= "" then
-          require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+        local input = vim.fn.input 'Quick Chat: '
+        if input ~= '' then
+          require('CopilotChat').ask(input, { selection = require('CopilotChat.select').buffer })
         end
       end,
-      desc = "CopilotChat - Quick chat",
+      desc = 'CopilotChat - Quick chat',
     },
     {
-      "<leader>cp",
+      '<leader>cp',
       function()
-        require("CopilotChat").toggle()
+        require('CopilotChat').toggle()
       end,
       desc = 'Copilot chat',
-      mode = {'n','v'}, -- This will apply the mapping in both normal and visual mode
-    }
-  }
+      mode = { 'n', 'v' }, -- This will apply the mapping in both normal and visual mode
+    },
+  },
 }
